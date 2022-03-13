@@ -18,12 +18,26 @@ pipeline {
         }
       }
     }
-    stage('Test') {
+    stage('Static Analysis') {
       parallel {
         stage('Unit Tests') {
           steps {
             container('maven') {
               sh 'mvn test'
+            }
+          }
+        }
+        stage('SCA') {
+          steps {
+            container('maven') {
+              catchError(buildResult: 'Success', stageResult: 'FALIURE') {
+                sh 'mvn org.owasp:dependency-check-maven:check'
+              }
+            }
+          }
+          post {
+            always {
+              archiveArtifacts allowEmptyArchive: true, artifacts: 'target/dependency-check-report.html'
             }
           }
         }
