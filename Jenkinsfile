@@ -30,6 +30,7 @@ pipeline {
         stage('SCA') {
           steps {
             container('maven') {
+              sh 'echo Starting to scan'
               catchError(buildResult: 'Success', stageResult: 'FALIURE') {
                 sh 'mvn org.owasp:dependency-check-maven:check'
               }
