@@ -19,8 +19,8 @@
     :when: 2020-05-31 15:26:48.756587000 Z
 - - :permit
   - New BSD
-  - :who:
-    :why:
+  - :who: 
+    :why: 
     :versions: []
     :when: 2022-03-17
 - - :permit
@@ -40,14 +40,14 @@
   - :who: 
     :why: 
     :versions: []
-    :when: 2020-05-31 15:27:29.688403000 Z
+    :when: 2020-05-31
 - - :approve
   - logback-core
   - :who: 
     :why: 
     :versions:
     - 1.2.10
-    :when: 2022-03-17 13:28:30.302764000 Z
+    :when: 2022-03-17
 - - :approve
   - logback-classic
   - :who: 
