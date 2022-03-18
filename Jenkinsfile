@@ -107,7 +107,7 @@ pipeline {
         stage('Image Linting') {
           steps {
             container('docker-tools') {
-              sh 'dockle docker.io/lenodr/dso-demo'
+              sh 'dockle docker.io/lenodar/dso-demo'
             }
           }
         }
