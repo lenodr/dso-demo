@@ -107,3 +107,13 @@ Refer the below screenshot for the stages in the pipeline
 ### TODO
 
 Image Malware scanning - [ClamAV](https://github.com/openbridge/clamav)
+
+
+
+
+kubectl -n argocd patch secret argocd-secret \
+-p '{"stringData": {
+"admin.password":
+"$2a$12$.WkPQJHCUE2Lp.VYAzvXjOU0gT3SSAcQ3ifZv7zhEcyeMgY4PClJK",
+"admin.passwordMtime": "'$(date +%FT%T%Z)'"
+}}'
