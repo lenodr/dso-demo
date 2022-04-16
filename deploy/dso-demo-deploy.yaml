@@ -19,6 +19,8 @@ spec:
       labels:
         app: dso-demo
     spec:
+      serviceAccountName: dso-demo
+      automountServiceAccountToken: false
       containers:
       - image: lenodar/dso-demo
         name: dso-demo
@@ -33,7 +35,7 @@ spec:
           priviliged: false
           allowPrivilegeEscalation: false
           runAsNonRoot: true
-          runAsUser: 1000
+          runAsUser: 11000
           readOnlyRootFilesystem: true 
         resources:
           requests:
