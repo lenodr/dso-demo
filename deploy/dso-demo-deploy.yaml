@@ -18,17 +18,23 @@ spec:
       creationTimestamp: null
       labels:
         app: dso-demo
+      annotations:
+        vault.hashicorp.com/agent-inject: 'true'
+        vault.hashicorp.com/agent-inject-status: 'update'
+        vault.hashicorp.com/role: 'dso-demo'
+        vault.hashicorp.com/agent-inject-secret-database: 'secret/dso-demo/database'
+        vault.hashicorp.com/agent-inject-template-database: |
+          {{- with secret "secret/dso-demo/database" -}}
+            mysql -u {{ .Data.data.user }} -p {{ .Data.data.password }} -h databse:3306 mydb
+          {{- end -}}
     spec:
       serviceAccountName: dso-demo
-      automountServiceAccountToken: false
       containers:
       - image: lenodar/dso-demo
         name: dso-demo
         ports:
         - containerPort: 8080
         securityContext:
-          seccomProfile:
-            type: RuntimeDefault
           capabilities:
             drop:
               - ALL

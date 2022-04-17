@@ -1,0 +1,90 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Class File Analyzer",
+          "version": "1.0.0-scan",
+          "fullName": "Class File Analyzer"
+        }
+      },
+      "conversion": {
+        "tool": {
+          "driver": {
+            "name": "@ShiftLeft/sast-scan"
+          }
+        },
+        "invocation": {
+          "arguments": [
+            "-jar",
+            "/opt/spotbugs/lib/spotbugs.jar",
+            "-textui",
+            "-include",
+            "/usr/local/src/lib/../spotbugs/include.xml",
+            "-exclude",
+            "/usr/local/src/lib/../spotbugs/exclude.xml",
+            "-noClassOk",
+            "-auxclasspathFromFile",
+            "/tmp/tmphb38vnvu",
+            "-sourcepath",
+            "/app",
+            "-quiet",
+            "-medium",
+            "-xml:withMessages",
+            "-effort:max",
+            "-nested:false",
+            "-output",
+            "/app/reports/class-report.xml",
+            "/app"
+          ],
+          "executionSuccessful": true,
+          "commandLine": "-jar /opt/spotbugs/lib/spotbugs.jar -textui -include /usr/local/src/lib/../spotbugs/include.xml -exclude /usr/local/src/lib/../spotbugs/exclude.xml -noClassOk -auxclasspathFromFile /tmp/tmphb38vnvu -sourcepath /app -quiet -medium -xml:withMessages -effort:max -nested:false -output /app/reports/class-report.xml /app",
+          "endTimeUtc": "2022-03-15T12:51:58Z",
+          "workingDirectory": {
+            "uri": "file:///home/lenodr/dso-demo"
+          }
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "endTimeUtc": "2022-03-15T12:51:58Z",
+          "workingDirectory": {
+            "uri": "file:///home/lenodr/dso-demo"
+          }
+        }
+      ],
+      "properties": {
+        "metrics": {
+          "total": 0,
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0
+        }
+      },
+      "results": [],
+      "automationDetails": {
+        "description": {
+          "text": "Static Analysis Security Test results using @ShiftLeft/sast-scan"
+        },
+        "guid": "9699c863-133e-4a91-9733-5e03074af0d6"
+      },
+      "versionControlProvenance": [
+        {
+          "branch": "main",
+          "repositoryUri": "https://github.com/lenodr/dso-demo",
+          "revisionId": "3bb0098dd1a7b7ce68e276512989443f3aeb6bd7"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "inlineExternalProperties": [
+    {
+      "guid": "9699c863-133e-4a91-9733-5e03074af0d6",
+      "runGuid": "04a75a7b-bac3-4e64-b1a3-9878ab300cae"
+    }
+  ]
+}
